@@ -23,6 +23,7 @@ class ReposTableViewController: UITableViewController {
                 self.tableView.reloadData()
             })
         }
+        
     }
 
     // MARK: - Table view data source
@@ -40,5 +41,22 @@ class ReposTableViewController: UITableViewController {
 
         return cell
     }
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let repo = store.repositories[indexPath.row]
+        
+        store.toggleStarStatus(for: repo) { (isStarred) in
+            var alert = UIAlertController()
+            
+            if isStarred {
+                alert = UIAlertController(title: "Herro", message: "You just starrrrrred", preferredStyle: .alert)
+                print("huzzah")
+            } else {
+                alert = UIAlertController(title: "Herro again", message: "You just unstarrrrred", preferredStyle: .alert)
+                print("meeeeeeh")
+            }
+        
+    }
 
+    }
 }

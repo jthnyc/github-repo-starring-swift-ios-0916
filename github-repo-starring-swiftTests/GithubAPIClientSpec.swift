@@ -79,7 +79,7 @@ class GithubAPIClientSpec: QuickSpec {
 
                 }
                 waitUntil(action: { (done) in
-                    GithubAPIClient.checkIfRepositoryIsStarred("wycats/merb-core", completion: { (starred) in
+                    GithubAPIClient.checkIfRepositoryIsStarred(fullName: "wycats/merb-core", completion: { (starred) in
                         expect(starred).to(beFalsy())
                         done()
                     })
@@ -95,7 +95,7 @@ class GithubAPIClientSpec: QuickSpec {
                     
                 }
                 waitUntil(action: { (done) in
-                    GithubAPIClient.checkIfRepositoryIsStarred("wycats/merb-core", completion: { (starred) in
+                    GithubAPIClient.checkIfRepositoryIsStarred(fullName: "wycats/merb-core", completion: { (starred) in
                         expect(starred).to(beTruthy())
                         done()
                     })
